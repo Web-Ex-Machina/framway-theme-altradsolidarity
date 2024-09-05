@@ -1,0 +1,95 @@
+@mixin shadow-solidarity($bg: body(block-background)) {
+  box-shadow: 8px 8px 0 var(--primary);
+  border: 1px solid var(--primary);
+}
+
+body{font-family: 'Calibri', sans-serif;}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{font-weight: 400; color: var(--primary);font-family: 'Calibri', sans-serif;}
+
+@for $index from 1 through 6{
+  h#{$index},
+  .h#{$index}{ font-size: 3.75em - (0.25em * (-1 + $index));
+    // @if $index < 4{line-height: 1.2;}
+  }
+}
+h1,.h1{text-transform: none;}
+
+.headerFW__wrapper{gap: 1em;}
+.headerFW__postnav{gap:1em;}
+.headerFW__nav__wrapper{align-items: center;}
+.headerFW{
+  & ul.level_1>li>a,
+  & ul.level_1>li>strong,
+  & ul.level_1>li>span{font-family: inherit; text-transform: none;}
+}
+
+.footer__links{
+  nav ul{padding: 0; list-style: none;}
+}
+.mod_article{
+  margin-bottom: 0;
+}
+
+.shadow-solidarity,
+.block-card:not([data-preset]) .block-card__wrapper,
+.block-std{@include shadow-solidarity();}
+
+.block-card__container:not([class*=gap-]){gap: $spacing;}
+
+.sliderFW,.heroFW{
+  &.solidarity{
+    @include shadow-solidarity();
+    &.w-full{width: 95vw;}
+    .sliderFW__item__content__wrapper{@extend .bg-primary !optional; 
+      padding: $spacing;
+      @include media-max(sm){margin-bottom: $spacing*0.5; padding: $spacing*0.5;}
+    }
+    .sliderFW__item__title{font-size: 1.45em; font-weight: 400; color: inherit;}
+  }
+
+  &:is(.mod_newslist){display: block;}
+}
+
+
+.bg-solidarity,
+.bg-primary{color: #fff;}
+
+.btn-bg-white{--btn-font-color: var(--primary);}
+%btn{
+  &:not([class*=btn-bg-]):not([class*=btn-bd-]){
+    &:hover,&:focus,&:active,&.active{--btn-font-color: #fff;}
+  }
+}
+
+.ce_rsce_headlineWsubtitle {
+  .title{ line-height: 1.5;}
+  .subtitle{font-size: 0.53em; color:body(font-color);}
+}
+
+.d-grid{
+  div:empty{display: none;}
+}
+
+%input{padding: .75em 1.5em;}
+
+div.widget{
+  %checkbox, %radio{
+    &+label{font-size: 1.2em;}
+  }
+}
+
+// select2 dropdown
+body{ 
+  .select2-container--default .select2-results__option--highlighted[aria-selected]{
+    background: color(greylighter);
+    color: currentColor;
+  }
+  .select2-container--default .select2-results__option[aria-selected=true]{
+    background: color(greylight);
+    color: currentColor;
+  }
+}
+.select2FW-wrapper{
+  .select2-container--default .select2-selection--single .select2-selection__arrow{ width: 48px;}
+}
