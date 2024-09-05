@@ -93,3 +93,13 @@ body{
 .select2FW-wrapper{
   .select2-container--default .select2-selection--single .select2-selection__arrow{ width: 48px;}
 }
+
+
+
+.ce_rsce_listIcons{
+  --img-w: 100%;
+  &[style*="--img-w"]{
+    &:is(.cols-autofill){--griditem-minwidth: var(--img-w);}
+    .block-icon__img{max-width: 100%; width: var(--img-w);}
+  }
+}
