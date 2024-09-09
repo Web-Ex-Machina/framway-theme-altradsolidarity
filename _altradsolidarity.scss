@@ -41,7 +41,7 @@ h1,.h1{text-transform: none;}
   &.solidarity{
     @include shadow-solidarity();
     &.w-full{width: 95vw;}
-    .sliderFW__item__content__wrapper{@extend .bg-primary !optional; 
+    .sliderFW__item__content__wrapper{
       padding: $spacing;
       @include media-max(sm){margin-bottom: $spacing*0.5; padding: $spacing*0.5;}
     }
@@ -103,3 +103,5 @@ body{
     .block-icon__img{max-width: 100%; width: var(--img-w);}
   }
 }
+
+.share-buttons__container{color: btn(font-color);}
